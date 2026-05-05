@@ -15,7 +15,7 @@
   "author": "Sujith BN",
   "scripts": {
     "dev":"npx parcel index.html",
-    "build" : "npx build parcel index.html",
+    "build":"npx build parcel index.html",
     "test": "jest"
   },
   "devDependencies": {
