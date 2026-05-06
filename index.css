@@ -1,84 +1,183 @@
-body {
-    font-family: "Poppins", sans-serif;
-    background-color: #121212;
-    color: #e0e0e0;
-    margin: 0;
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@600&display=swap');
+
+* {
+    box-sizing: border-box;
 }
 
-/* Header */
+body {
+    font-family: "DM Sans", sans-serif;
+    background-color: #0f0f0f;
+    color: #e0e0e0;
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* ── Header ─────────────────────────────────────────── */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
-    margin: 10px;
-
-    background-color: #1e1e1e;
-    border-radius: 12px;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.6);
+    padding: 0 28px;
+    margin: 14px 16px;
+    background-color: #1a1a1a;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.5);
 }
 
-/* Logo */
 .header > .logo > img {
-    width: 90px;
-    margin: 10px 0;
-    border-radius: 20%;
+    width: 88px;
+    margin: 12px 0;
+    border-radius: 14px;
 }
 
-/* Nav container */
 .header > .nav-items > ul {
     display: flex;
     align-items: center;
     margin: 0;
     padding: 0;
+    gap: 4px;
 }
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 400;   /* normal (no bold) */
-}
-/* Nav items */
+
 .header > .nav-items > ul > li {
     list-style: none;
-    font-size: 16px;
-    padding: 20px;
-    color: #cccccc;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 16px;
+    color: #999;
     cursor: pointer;
-    transition: color 0.3s ease;
+    border-radius: 8px;
+    transition: color 0.2s ease, background 0.2s ease;
+    letter-spacing: 0.01em;
 }
 
-/* Hover effect */
 .header > .nav-items > ul > li:hover {
-    color: #ffffff;
+    color: #fff;
+    background: rgba(255,255,255,0.07);
 }
 
-/* Optional active item */
 .active {
-    color: #ffcc00;
+    color: #f5c542 !important;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+    margin: 0;
+}
 
-.res-container{
+/* ── Body / Search ───────────────────────────────────── */
+.body {
+    padding: 8px 16px 40px;
+}
+
+.search {
+    margin-bottom: 24px;
+}
+
+/* ── Restaurant Grid ─────────────────────────────────── */
+.res-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* ── Restaurant Card ─────────────────────────────────── */
+.res-card {
+    background-color: #1a1a1a;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.06);
+    overflow: hidden;
     display: flex;
-    flex-wrap: wrap;
-}
-.res-card{
-
-    font-weight: 100;
-    width: 240px;
-    background-color: #1e1e1e;
-    border-radius: 12px;
-    padding: 15px;
-    margin: 15px;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.5);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-direction: column;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     cursor: pointer;
 }
+
 .res-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 8px 20px rgba(0,0,0,0.7);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.6);
+    border-color: rgba(255,255,255,0.12);
 }
+
+/* Image */
 .res-card img {
     width: 100%;
-    height: 150px;
+    height: 160px;
     object-fit: cover;
-    border-radius: 10px;
+    display: block;
+}
+
+/* Card body — all text lives here */
+.res-card > h1,
+.res-card > h2,
+.res-card > h3 {
+    padding: 0 14px;
+}
+
+/* Restaurant name */
+.res-card > h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #f0f0f0;
+    padding-top: 14px;
+    padding-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Cuisine */
+.res-card > h2 {
+    font-size: 12px;
+    font-weight: 500;
+    color: #f5c542;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+/* Rating, delivery time, location, price rows */
+.res-card > h3 {
+    font-size: 13px;
+    font-weight: 400;
+    color: #aaa;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Last h3 (price) gets special treatment */
+.res-card > h3:last-child {
+    font-size: 13px;
+    font-weight: 600;
+    color: #e0e0e0;
+    padding-top: 8px;
+    padding-bottom: 14px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    margin-top: 4px;
+}
+
+/* ── Filter Bar ──────────────────────────────────────── */
+.filter-btn {
+    margin-bottom: 15px;
+    background-color: transparent;
+    color: #f5c542;
+    border: 1px solid #f5c542;
+    border-radius: 999px;
+    padding: 8px 20px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+    background-color: #f5c542;
+    color: #111;
 }
