@@ -168,7 +168,7 @@ h1, h2, h3, h4, h5, h6 {
     background-color: transparent;
     color: #f5c542;
     border: 1px solid #f5c542;
-    border-radius: 999px;
+
     padding: 8px 20px;
     font-family: "DM Sans", sans-serif;
     font-size: 13px;
@@ -179,5 +179,115 @@ h1, h2, h3, h4, h5, h6 {
 
 .filter-btn:hover {
     background-color: #f5c542;
+    color: #111;
+}
+
+.shimmer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.shimmer-card {
+    background-color: #1a1a1a;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.06);
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+}
+
+.shimmer-img {
+    width: 100%;
+    height: 160px;
+    background: linear-gradient(
+        90deg,
+        #1f1f1f 25%,
+        #2a2a2a 50%,
+        #1f1f1f 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+.shimmer-line {
+    height: 12px;
+    margin: 8px 14px;
+    border-radius: 6px;
+
+    background: linear-gradient(
+        90deg,
+        #1f1f1f 25%,
+        #2a2a2a 50%,
+        #1f1f1f 75%
+    );
+
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+.big {
+    width: 70%;
+    height: 16px;
+    margin-top: 14px;
+}
+
+.medium {
+    width: 45%;
+}
+
+.small {
+    width: 35%;
+    margin-bottom: 12px;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.login{
+    list-style: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 16px;
+    color: #000000;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: color 0.2s ease, background 0.2s ease;
+    letter-spacing: 0.01em;
+    
+}
+.login:hover{
+    color: #fcfcfc;
+    background: rgba(255,255,255,0.07);
+}
+.search-box{
+    width: 15%;
+    border: 1px solid #a3a3a3;
+    padding: 8px 20px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.search-btn{
+    margin-left: 15px;
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 8px 20px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.search-btn:hover {
+    background-color: #ffffff;
     color: #111;
 }

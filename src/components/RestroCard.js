@@ -1,4 +1,4 @@
-import { CDN_URL } from "../utils/constants"
+import { SWIGGY_IMG_URL } from "../utils/constants"
 const RestroCard = (props)=>{
     const {d} = props
     
@@ -7,15 +7,14 @@ const RestroCard = (props)=>{
         <div className="res-card" >
           
              <img
-                src={`${CDN_URL}${d.image}/400/250`}
-                alt={d.name}
+                src={SWIGGY_IMG_URL + d.info.cloudinaryImageId} alt={d.info.name}
             />
-            <h1>{d.name}</h1>
-            <h2>{d.cuisine}</h2>
-            <h3>{d.rating}</h3>
-            <h3>{d.deliveryTime}</h3>
-            <h3>{d.location}</h3>
-            <h3>{d.price}</h3>
+            <h1>{d.info.name}</h1>
+            <h2>{d.info.cuisine}</h2>
+            <h3>{d.info.avgRating}</h3>
+            <h3>{d.info.sla.slaString}</h3>
+            <h3>{d.info.locality}</h3>
+            <h3>{d.info.costForTwo}</h3>
          
         </div>
     )
