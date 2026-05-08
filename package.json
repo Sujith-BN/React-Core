@@ -14,8 +14,8 @@
   "license": "ISC",
   "author": "Sujith BN",
   "scripts": {
-    "dev":"npx parcel index.html",
-    "build":"npx build parcel index.html",
+    "dev": "npx parcel index.html",
+    "build": "npx build parcel index.html",
     "test": "jest"
   },
   "devDependencies": {
@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "react": "^19.2.5",
-    "react-dom": "^19.2.5"
+    "react-dom": "^19.2.5",
+    "react-router-dom": "^6.11.2"
   }
 }
