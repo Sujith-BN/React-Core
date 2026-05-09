@@ -1,7 +1,9 @@
+import UserClass from "./UserClass"
+
 const About = () =>{
     return (
         <div>
-            <h1>Hi im about component</h1>
+            <UserClass name={"Sujith"}/>
         </div>
     )
 }
