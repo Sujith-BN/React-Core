@@ -6,6 +6,7 @@ import Shimmer from "./Shimmer"
 import { EAT_SURE_HOTELS } from "../utils/constants"
 import { Link } from "react-router-dom"
 import useOnlineStatus from "../Hooks/useOnlineStatus"
+import RestroCard, { PromoCard } from "./RestroCard"
 
 export const Body = ()=>{
 
@@ -13,6 +14,8 @@ export const Body = ()=>{
     const [resList,setResList] = useState([])
     const [searchText,setSearchText] = useState("") 
     const [filteredRes ,setFilteredRes] = useState([])
+
+    const NewPromoCard = PromoCard(RestroCard)
     
     
     useEffect(()=>{
@@ -151,10 +154,17 @@ export const Body = ()=>{
             <div className="flex flex-wrap gap-6 justify-center">
                 {
                 filteredRes.map((restrau,index)=>{
+                    const sequenceNumber = restrau.sequence
+
                     return <Link key={index}
                     to={`/${restrau.brand_id}/${restrau.store_id}/${restrau.client_source_id}`}
                     
-                    ><Card  d= {restrau}/></Link>
+                    > {
+                            sequenceNumber % 2 === 0
+                            ? <NewPromoCard d={restrau} />
+                            : <Card d={restrau} />
+                        }
+                        </Link>
                 })
                 }                     
             </div>

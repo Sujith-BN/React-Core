@@ -54,5 +54,32 @@ const RestroCard = (props) => {
     </div>
   );
 };
-
 export default RestroCard;
+
+
+export const PromoCard = (RestroCard) => {
+
+  return (props)=>{
+    return (
+      <div className="relative">
+        <label className="
+          absolute
+          top-3
+          left-3
+          bg-yellow-400
+          text-black
+          px-4
+          py-1
+          rounded-full
+          text-sm
+          font-bold
+          shadow-lg
+          z-10
+        ">
+          Promoted
+        </label>
+        <RestroCard {...props}/>
+      </div>
+    )
+  }
+}

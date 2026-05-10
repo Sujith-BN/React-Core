@@ -8,6 +8,7 @@ import Contact from "./components/Contact"
 import Error from "./components/Error"
 import RestroMenu from "./components/RestroMenu"
 import "./index.css";
+import RestroCategory from "./components/RestroCategory"
 
 //chunking
 //code splitting
@@ -62,6 +63,11 @@ const appRouter = createBrowserRouter([
                 path:"/:brandId/:storeId/:sourceId",
                 element:<RestroMenu/>
 
+            }
+             ,
+            {  
+                path:"/category",
+                element:<RestroCategory/>
             }
         ],
         errorElement:<Error/>
