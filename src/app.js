@@ -1,4 +1,4 @@
-import React ,{lazy,Suspense} from "react"
+import React ,{lazy,Suspense, useEffect, useState} from "react"
 import ReactDOM from "react-dom/client"
 import Header from "./components/Header"
 import {Body} from "./components/Body"
@@ -9,6 +9,7 @@ import Error from "./components/Error"
 import RestroMenu from "./components/RestroMenu"
 import "./index.css";
 import RestroCategory from "./components/RestroCategory"
+import UserContext from "./utils/UserContext"
 
 //chunking
 //code splitting
@@ -20,13 +21,28 @@ import RestroCategory from "./components/RestroCategory"
 const Grocery = lazy(()=>import("./components/Grocery"))
 
 const AppLayout = () =>{
+
+    const [user, setUser] = useState(null)
+    //fake api call
+
+
+    useEffect(()=>{
+
+        const user ={
+            userName : "Pengs",
+        }
+        setUser(user.userName)
+
+    },[])
     return (
-        <div className="bg-gray-900  min-h-screen text-white">
-            <Header/>
-            <Outlet/>
- 
-        </div>
+        <UserContext.Provider value={{ loggedInUser: user, setUser }}>
+            <div className="bg-gray-900  min-h-screen text-white">
+                <Header/>
+                <Outlet/>
+            </div>
+        </UserContext.Provider>
     )
+    
 }
 
 const appRouter = createBrowserRouter([

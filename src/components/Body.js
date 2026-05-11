@@ -1,12 +1,13 @@
 import Card from "./RestroCard"
 //normal js variable
 import restaurantList from "../utils/mockdata"
-import { useState ,useEffect } from "react"
+import { useState ,useEffect ,useContext } from "react"
 import Shimmer from "./Shimmer"
 import { EAT_SURE_HOTELS } from "../utils/constants"
 import { Link } from "react-router-dom"
 import useOnlineStatus from "../Hooks/useOnlineStatus"
 import RestroCard, { PromoCard } from "./RestroCard"
+import UserContext from "../utils/UserContext"
 
 export const Body = ()=>{
 
@@ -14,6 +15,7 @@ export const Body = ()=>{
     const [resList,setResList] = useState([])
     const [searchText,setSearchText] = useState("") 
     const [filteredRes ,setFilteredRes] = useState([])
+    const {loggedInUser ,setUser} = useContext(UserContext)
 
     const NewPromoCard = PromoCard(RestroCard)
     
@@ -118,6 +120,7 @@ export const Body = ()=>{
                     </svg>
                     </div>
 
+             
                     <input
                     type="text"
                     placeholder="Enter the restaurant name"
@@ -151,6 +154,7 @@ export const Body = ()=>{
                 <button className="filter-btn" onClick={()=>{
                 }}>Top Rated Restaurants</button>
             </div> */}
+              
             <div className="flex flex-wrap gap-6 justify-center">
                 {
                 filteredRes.map((restrau,index)=>{

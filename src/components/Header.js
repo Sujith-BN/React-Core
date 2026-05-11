@@ -1,14 +1,15 @@
 import { LOGO_URL } from "../utils/constants"
-import { useState,useEffect } from "react"
+import { useState,useEffect, useContext } from "react"
 import { Link } from "react-router-dom"
 import useOnlineStatus from "../Hooks/useOnlineStatus"
+import UserContext from "../utils/UserContext"
 
 
 
 const Header = ()=>{
     const [loginBtn , setLoginBtn] = useState("Login")
     const status = useOnlineStatus()
-
+    const {loggedInUser} = useContext(UserContext)
  
     useEffect(()=>{
         console.log("Use effect called from header")
@@ -28,6 +29,7 @@ const Header = ()=>{
                     <li className="hover:text-yellow-400 cursor-pointer transition duration-300"><Link to="/contact">Contact</Link></li>
                     <li className="hover:text-yellow-400 cursor-pointer transition duration-300"><Link to="/grocery">Grocery</Link></li>      
                     <li style={{color:status?"green":"red"}}>{status ? "Online" : "Offline"}</li>
+                    <li className="hover:text-yellow-400 cursor-pointer transition duration-300">{loggedInUser}</li>
         
                     <button  onClick={()=>{
                         loginBtn === "Login"
