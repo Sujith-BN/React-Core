@@ -28,6 +28,7 @@ const Header = ()=>{
                     <li className="hover:text-yellow-400 cursor-pointer transition duration-300"><Link to="/about">About</Link></li>
                     <li className="hover:text-yellow-400 cursor-pointer transition duration-300"><Link to="/contact">Contact</Link></li>
                     <li className="hover:text-yellow-400 cursor-pointer transition duration-300"><Link to="/grocery">Grocery</Link></li>      
+                    <li className="hover:text-yellow-400 cursor-pointer transition duration-300"><Link to="/category">Category</Link></li>      
                     <li style={{color:status?"green":"red"}}>{status ? "Online" : "Offline"}</li>
                     <li className="hover:text-yellow-400 cursor-pointer transition duration-300">{loggedInUser}</li>
         
