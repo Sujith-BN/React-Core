@@ -10,6 +10,9 @@ import RestroMenu from "./components/RestroMenu"
 import "./index.css";
 import RestroCategory from "./components/RestroCategory"
 import UserContext from "./utils/UserContext"
+import { Provider } from "react-redux"
+import appStore from "./utils/appStore"
+
 
 //chunking
 //code splitting
@@ -35,12 +38,14 @@ const AppLayout = () =>{
 
     },[])
     return (
+        <Provider store={appStore}>
         <UserContext.Provider value={{ loggedInUser: user, setUser }}>
             <div className="bg-gray-900  min-h-screen text-white">
                 <Header/>
                 <Outlet/>
             </div>
         </UserContext.Provider>
+        </Provider>
     )
     
 }

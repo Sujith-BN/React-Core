@@ -1,10 +1,12 @@
+
 import { SWIGGY_IMG_URL } from "../utils/constants";
+
 
 const RestroCard = (props) => {
   const { d } = props;
 
   return (
-    <div className="bg-gray-900 text-white w-[320px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:scale-105 transition duration-300 cursor-pointer border border-gray-800">
+    <div className="relative bg-gray-900 text-white w-[320px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:scale-105 transition duration-300 cursor-pointer border border-gray-800">
 
       <img
         className="w-full h-52 object-cover"
@@ -47,8 +49,10 @@ const RestroCard = (props) => {
           <p className="text-gray-400 text-xs mt-3">
             {d.discount_info.coupon_description}
           </p>
+        
 
         </div>
+      
 
       </div>
     </div>

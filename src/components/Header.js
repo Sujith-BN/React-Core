@@ -3,6 +3,7 @@ import { useState,useEffect, useContext } from "react"
 import { Link } from "react-router-dom"
 import useOnlineStatus from "../Hooks/useOnlineStatus"
 import UserContext from "../utils/UserContext"
+import { useSelector } from "react-redux"
 
 
 
@@ -10,6 +11,8 @@ const Header = ()=>{
     const [loginBtn , setLoginBtn] = useState("Login")
     const status = useOnlineStatus()
     const {loggedInUser} = useContext(UserContext)
+
+    const cart = useSelector((store)=>store.cart.items)
  
     useEffect(()=>{
         console.log("Use effect called from header")
@@ -17,7 +20,7 @@ const Header = ()=>{
 
 
     return (
-        <div className="flex justify-between items-center p-4 text-white">
+        <div className="sticky top-0 z-50 flex justify-between items-center p-4 text-white bg-black shadow-lg mb-7">
             <div className="">
                 <Link to="/"><img className="w-20 h-20 rounded-xl" src={LOGO_URL}
                 /></Link>
@@ -29,6 +32,7 @@ const Header = ()=>{
                     <li className="hover:text-yellow-400 cursor-pointer transition duration-300"><Link to="/contact">Contact</Link></li>
                     <li className="hover:text-yellow-400 cursor-pointer transition duration-300"><Link to="/grocery">Grocery</Link></li>      
                     <li className="hover:text-yellow-400 cursor-pointer transition duration-300"><Link to="/category">Category</Link></li>      
+                    <li className="hover:text-yellow-400 cursor-pointer transition duration-300"><Link to="/cart">Cart ({cart.length})</Link></li>      
                     <li style={{color:status?"green":"red"}}>{status ? "Online" : "Offline"}</li>
                     <li className="hover:text-yellow-400 cursor-pointer transition duration-300">{loggedInUser}</li>
         
