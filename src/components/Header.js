@@ -13,6 +13,7 @@ const Header = ()=>{
     const {loggedInUser} = useContext(UserContext)
 
     const cart = useSelector((store)=>store.cart.items)
+    console.log(cart)
  
     useEffect(()=>{
         console.log("Use effect called from header")

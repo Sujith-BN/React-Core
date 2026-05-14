@@ -12,6 +12,7 @@ import RestroCategory from "./components/RestroCategory"
 import UserContext from "./utils/UserContext"
 import { Provider } from "react-redux"
 import appStore from "./utils/appStore"
+import Cart from "./components/Cart"
 
 
 //chunking
@@ -89,6 +90,10 @@ const appRouter = createBrowserRouter([
             {  
                 path:"/category",
                 element:<RestroCategory/>
+            }  ,
+            {  
+                path:"/cart",
+                element:<Cart/>
             }
         ],
         errorElement:<Error/>
